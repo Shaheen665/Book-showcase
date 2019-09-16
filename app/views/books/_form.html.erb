@@ -1,0 +1,22 @@
+<%= form_for(@book) do |f| %>
+  <%= render "application/error_messages", target: @book %>
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+  </div>
+  <%- if @book.image_data? %>
+    <div class="field">
+      <%= image_tag @book.image_url(:thumb) %>
+    </div>
+    <div class="field">
+      Remove attachment: <%= f.check_box :remove_image %>
+    </div>
+  <%- end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

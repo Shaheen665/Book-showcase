@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+<div>
+  <strong>Name:</strong>
+  <%= @book.name %>
+</div>
+<div>
+  <strong>Image:</strong>
+  <%= image_tag @book.image_url(:original), style: "width: 400px; height: auto " %>
+</div>
+<%= link_to 'Edit', edit_book_path(@book) %> |
+<%= link_to 'Back', books_path %>
